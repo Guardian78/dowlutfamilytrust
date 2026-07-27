@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dowlut family trust</title>
+    
+    <!-- Importing Web Fonts (Fallback Serif & Monospace) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #f4f4f0;
+            --text-dim: #888888;
+            --accent: #d35400; /* Faded rust orange for interactive elements */
+            --font-mono: 'Space Mono', 'Courier New', Courier, monospace;
+            /* Prioritizing Libertinus Serif, with EB Garamond as the closest web-safe fallback */
+            --font-serif: 'Libertinus Serif', 'EB Garamond', 'Times New Roman', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 1. The Global Header (The Index - Kept Uppercase as per screenshot) */
+        header.terminal-header {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        /* 2. The Hero Section (The Thesis) */
+        section.hero {
+            margin-bottom: 8rem;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: lowercase; /* Enforcing lowercase movement */
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .hero .thesis-quote {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-style: italic;
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+            display: block;
+        }
+
+        /* 3. The Directory (The Three Pillars) */
+        section.directory {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            margin-bottom: 8rem;
+        }
+
+        .pillar {
+            border-top: 1px solid #222;
+            padding-top: 2rem;
+            transition: border-top-color 0.3s ease;
+        }
+
+        .pillar:hover {
+            border-top-color: var(--text-dim);
+        }
+
+        /* Pillar Headers - Kept Uppercase as per screenshot */
+        .pillar-header {
+            font-family: var(--font-mono);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .pillar h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            text-transform: lowercase; /* Enforcing lowercase movement */
+        }
+
+        .pillar p {
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .pillar .status {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* Orange Interactive Links - Kept Uppercase */
+        a.terminal-link {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        a.terminal-link:hover {
+            color: var(--text-primary);
+        }
+
+        a.terminal-link::before {
+            content: "> ";
+            margin-right: 0.5rem;
+        }
+
+        /* 4. The Footer (Secure Contact Protocol) */
+        footer.secure-footer {
+            border-top: 2px solid #333;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        footer h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: lowercase; /* Enforcing lowercase movement */
+        }
+
+        footer p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-block {
+            background-color: #111;
+            padding: 1.5rem;
+            border: 1px solid #222;
+            display: inline-block;
+            font-family: var(--font-mono);
+        }
+
+        .contact-block span {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent); /* Applying orange highlight to contact */
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .contact-block .email-address {
+            text-transform: lowercase;
+        }
+
+        .contact-block small {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            body { padding: 2rem 1.5rem; }
+            h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.05rem; }
+            section.directory { gap: 3.5rem; }
+            .pillar h2 { font-size: 1.6rem; }
+            header.terminal-header { margin-bottom: 5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. The Global Header (Monospace, Uppercase) -->
+    <header class="terminal-header">
+        <span>SERVER: DFT_ROOT_SECURE</span>
+        <span>EST: 2026</span>
+        <span>INDEX: ARCHIVE // STAGE // FOUNDATION</span>
+    </header>
+
+    <!-- 2. The Hero Section -->
+    <section class="hero">
+        <h1>dowlut family trust</h1>
+        <p>Preserving the architecture of the living sound. We engineer cultural franchises, digital archives, and educational frameworks built on the uncompromising legacy of Darren Dowlut.</p>
+        <span class="thesis-quote">The art outlasts the friction it took to create it.</span>
+    </section>
+
+    <!-- 3. The Directory -->
+    <section class="directory">
+        
+        <!-- Pillar I -->
+        <article class="pillar">
+            <div class="pillar-header">[ I. DIGITAL PUBLISHING ]</div>
+            <h2>archive of the living sound</h2>
+            <p>The official Substack and multimedia vault. A serialized excavation of raw studio audio, digitized journals, and the mathematical anatomy of songwriting.</p>
+            <span class="status">Status: Platform deployment scheduled for October.</span>
+            <a href="#" class="terminal-link">ENTER THE VAULT</a>
+        </article>
+
+        <!-- Pillar II -->
+        <article class="pillar">
+            <div class="pillar-header">[ II. LIVE DEPLOYMENT ]</div>
+            <h2>leker moris</h2>
+            <p>An international, modular theatrical franchise. Engineered as a cultural operating system, scaling physical friction and Socratic inquiry to local stages worldwide without the logistical liability of traditional touring.</p>
+            <span class="status">Status: Commercial Pitch & Blueprint Finalized.</span>
+            <a href="#" class="terminal-link">VIEW THE ARCHITECTURE</a>
+        </article>
+
+        <!-- Pillar III -->
+        <article class="pillar">
+            <div class="pillar-header">[ III. THE LEGACY ]</div>
+            <h2>darren dowlut foundation</h2>
+            <p>A future memorial music school initiative. Dedicated to teaching the discipline, the physical endurance, and the raw sonic instinct required to build undeniable art.</p>
+            <span class="status">Status: In Development.</span>
+            <a href="#" class="terminal-link">READ THE CHARTER</a>
+        </article>
+
+    </section>
+
+    <!-- 4. The Footer -->
+    <footer class="secure-footer">
+        <h3>communications protocol</h3>
+        <p>All official inquiries regarding licensing, production, and archival access are routed through our secure, end-to-end encrypted infrastructure.</p>
+        
+        <div class="contact-block">
+            <span>DIRECT: <a href="mailto:admin@dowlutfamilytrust.com" class="email-address" style="color: inherit; text-decoration: none;">admin@dowlutfamilytrust.com</a></span>
+            <small>(Powered by Proton Network)</small>
+        </div>
+    </footer>
+
+</body>
+</html>
